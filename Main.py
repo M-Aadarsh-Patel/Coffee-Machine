@@ -6,16 +6,21 @@ Machine_resources = {
     "coffee" : 100,
     "money" : 0
 }
+
+def caluculate_coins(Quarters, Dimes, Nikels, Pennies):
+    return (Quarters * 0.25) + (Dimes) + (Nikels) + (Pennies)
+
+def report(Coffee_Machine_resources):
+    print(f"Water: {Coffee_Machine_resources['water']}ml")
+    print(f"Milk: {Coffee_Machine_resources['milk']}ml")
+    print(f"Coffee: {Coffee_Machine_resources['coffee']}g")
+    print(f"Money: ${Coffee_Machine_resources['money']}")
+
 while True:
     Order = input("What would you like? (Espresso/Latte/Cappuccino): ").lower()
 
     if Order == 'report':
-
-        print(f"Water: {Machine_resources['water']}ml")
-        print(f"Milk: {Machine_resources['milk']}ml")
-        print(f"Coffee: {Machine_resources['coffee']}g")
-        print(f"Money: ${Machine_resources['money']}")
-
+        report(Coffee_Machine_resources=Machine_resources)
         continue
 
     Order_ingredients = MENU[f"{Order}"]['ingredients']
@@ -29,12 +34,12 @@ while True:
             break
 
     if ingredients_sufficient == True:
-        quarters = int(input("How many quarters?: ")) * 0.25
-        dimes = int(input("How many diems?: ")) * 0.10
-        nikels = int(input("How many nikels?: ")) * 0.05
-        pennies = int(input("How many pennies?: ")) * 0.01
+        quarters = int(input("How many quarters?: "))
+        dimes = int(input("How many diems?: "))
+        nikels = int(input("How many nikels?: "))
+        pennies = int(input("How many pennies?: "))
 
-        money_recived = quarters + dimes + nikels + pennies
+        money_recived = caluculate_coins(Quarters=quarters, Dimes=dimes, Nikels=nikels, Pennies=pennies)
 
         change = money_recived - MENU[f"{Order}"]['cost']
 
