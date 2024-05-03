@@ -53,3 +53,6 @@ while True:
             
             for ingredients in Order_ingredients:
                 Machine_resources[ingredients] -= Order_ingredients[ingredients]
+
+    if Order == 'off':
+        break
