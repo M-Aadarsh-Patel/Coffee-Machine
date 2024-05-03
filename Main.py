@@ -51,7 +51,7 @@ while True:
             print(f"Here is ${change} in change.")
             print(f"Here is your {Order.title()}☕, Enjoy.")
 
-            Machine_resources['money'] += change - money_recived
+            Machine_resources['money'] += money_recived - change
             
             for ingredients in Order_ingredients:
                 Machine_resources[ingredients] -= Order_ingredients[ingredients]
