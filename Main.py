@@ -8,6 +8,8 @@ Machine_resources = {
 }
 
 def caluculate_coins(Quarters, Dimes, Nikels, Pennies):
+    """Returns the calculated ammount that the customer gave."""
+    
     return (Quarters * 0.25) + (Dimes) + (Nikels) + (Pennies)
 
 def report(Coffee_Machine_resources):
@@ -49,7 +51,7 @@ while True:
             print(f"Here is ${change} in change.")
             print(f"Here is your {Order.title()}☕, Enjoy.")
 
-            Machine_resources['money'] += money_recived
+            Machine_resources['money'] += change - money_recived
             
             for ingredients in Order_ingredients:
                 Machine_resources[ingredients] -= Order_ingredients[ingredients]
